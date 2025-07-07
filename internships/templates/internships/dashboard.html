@@ -1,0 +1,47 @@
+{% extends 'base.html' %}
+
+{% block title %}Home - Balancix App{% endblock %}
+
+{% block content %}
+<div class="space-y-6">
+    <!-- Header Section -->
+    <div class="bg-white shadow rounded-lg p-6">
+        <h1 class="text-3xl font-bold text-gray-900 mb-4">Startups Globales contratando 💼</h1>
+        <p class="text-gray-600">Descubre y postula entre más de +500 oportunidades remotas. Recuerda que también puedes agendar una asesoría.</p>
+    </div>
+    
+    <!-- Filters Section -->
+    <div class="bg-white shadow rounded-lg p-6">
+        <!-- Search and Filters Container -->
+        <div class="flex flex-col lg:flex-row lg:items-end gap-4">
+            <!-- Search Section (40%) -->
+            <div class="w-full lg:w-2/5 lg:flex lg:items-center">
+                {% include 'includes/search.html' %}
+            </div>
+            
+            <!-- Filters Section (60%) -->
+            <div class="w-full lg:w-3/5">
+                <div class="flex flex-col lg:flex-row lg:items-center gap-4">
+                    <p class="text-[#212121] lg:flex lg:items-center">Tipo de oferta:</p>
+                    <div class="lg:flex lg:items-center">
+                        {% include 'includes/filters.html' %}
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Cards Section -->
+    <div class="bg-white shadow rounded-lg p-6">
+        <div class="w-full grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+            {% for internship in internships %}
+                {% include 'includes/cardPost.html' with internship=internship %}
+            {% empty %}
+                <div class="col-span-full text-center py-8 text-gray-500">
+                    <p>No hay ofertas de prácticas disponibles en este momento.</p>
+                </div>
+            {% endfor %}
+        </div>
+    </div>
+</div>
+{% endblock %} 

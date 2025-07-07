@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta description="Listado de prácticas" content="Colabora con startups globales a través de internships o proyectos pagados en dólares">
+    <title>{% block title %}Balancix App{% endblock %}</title>
+    {% load static %}
+    <link href="{% static 'css/output.css' %}" rel="stylesheet">
+</head>
+<body class="bg-gray-100 font-sans">
+
+    {% include 'includes/navbar.html' %}
+    
+    <main class="max-w-7xl mx-auto py-6 px-4">
+        {% block content %}
+        {% endblock %}
+    </main>
+
+    {% include 'includes/footer.html' %}
+</body>
+</html> 
